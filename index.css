@@ -1,0 +1,32 @@
+
+
+body {
+  margin: 50px auto;
+  width: 90%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.dressesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.dressGridItem {
+  margin: 30px;
+  text-align: center;
+}
+
+.dressGridImgContainer {
+  height: 320px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.dressGridItem img {
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 12px;
+
+}

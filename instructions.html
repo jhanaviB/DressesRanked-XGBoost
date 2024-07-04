@@ -1,0 +1,35 @@
+<html>
+
+<title>Queenly Take-Home Assignment</title>
+<link rel="stylesheet" href="index.css">
+<body>
+
+<h1>Queenly Take-Home Assignment</h1>
+
+<p>Background Info: Within this folder, you will see a csv file named "wardrobe_items_downloaded_data.csv".
+  This is a csv representation of approximately 8,000 dresses from our database. The fields values are:
+</p>
+  <ul>
+    <li><b>wardrobe_id</b>: The id of the dress item</li>
+    <li><b>wardrobe_size</b>: The dress size, ex. "4" means a dress size 4</li>
+    <li><b>wardrobe_color</b>: The color of the dress</li>
+    <li><b>wardrobe_style</b>: The style/shape of the dress</li>
+    <li><b>wardrobe_price</b>: The price of the dress, in $</li>
+    <li><b>wardrobe_created_at_ms</b>: The timestamp of when the dress was listed for sale, in UNIX</li>
+    <li><b>wardrobe_designer</b>: The fashion designer/brand label of the dress</li>
+    <li><b>wardrobe_photo_signature</b>: The photo signature of the dress, to display the URL. ex: if the photo signature value is "wardrobe-1610511485308", the url of the photo will be: https://qny.queenly.com/wardrobe_grid/wardrobe-1610511485308.jpg</li>
+  <ul>
+
+<h2>Instructions</h2>
+<p>Using the provided data source of dresses, update the python file <b>"run.py"</b> that generates 100 recommended dresses for the users represented in "trisha.json" and "emily.json"</p>
+<p>These 100 dresses should be ranked from most to least similar to their preferences, and show some similarity to the dresses in each users "last_saved_dresses" field. </p>
+<p>The output should be 4 files:</p>
+<ul>
+  <li>trisha.txt <= a list of wardrobe ids, ordered from most to least similar to their preferences. There is an example in "example_output.txt" </li>
+  <li>trisha.html <= a visual representation of trisha.txt. There is an example in "example_output.html"</li>
+  <li>emily.txt  <= a list of wardrobe ids, ordered from most to least similar to their preferences. There is an example in "example_output.txt" </li>
+  <li>emily.html <= a visual representation of trisha.txt. There is an example in "example_output.html"</li>
+</ul>
+<p>You may reuse the html and css used in example_output.html to represent your data</p>
+</body>
+</html>

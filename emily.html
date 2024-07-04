@@ -1,0 +1,97 @@
+<html>
+  <title>Assignment Example Output</title>
+  <link rel="stylesheet" href="index.css" />
+  <label id="csv_label" for="csv">Choose the wardrobe csv file:</label>
+  <input id="csv" text="csv input" type="file" accept=".csv" />
+  <label id="txt_label" for="txt">Choose the user txt file:</label>
+  <input id="txt" text="txt input" type="file" accept=".txt" />
+  <script>
+    var price = [];
+    var size = [];
+    var color = [];
+    var ids = [];
+    var style = [];
+    const txtfileInput = document.getElementById("txt");
+    const fileInput = document.getElementById("csv");
+
+    const readFile1 = () => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const ids = reader.result.split("\n").map((id) => id.trim());
+        readCSVFile(ids);
+        createDressGridItems(ids);
+      };
+      reader.readAsText(txtfileInput.files[0]);
+    };
+
+    const readCSVFile = (ids) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const csvData = reader.result.split("\n");
+        for (let i = 0; i < csvData.length; i++) {
+          const row = csvData[i].split(",");
+          if (ids.some((id) => row[0].includes(id))) {
+            price.push(row[4]);
+            style.push(row[3]);
+            color.push(row[2]);
+            size.push(row[1]);
+            ids.push(row[0]);
+          }
+        }
+      };
+      reader.readAsText(fileInput.files[0]);
+    };
+
+    console.log(price);
+    txtfileInput.addEventListener("change", readFile1);
+
+    function createDressGridItem(id) {
+      const dressGridItem = document.createElement("div");
+      dressGridItem.classList.add("dressGridItem");
+
+      const dressGridImgContainer = document.createElement("div");
+      dressGridImgContainer.classList.add("dressGridImgContainer");
+
+      const img = document.createElement("img");
+      img.src = "https://qny.queenly.com/wardrobe_grid/wardrobe-" + id + ".jpg";
+      img.width = "200";
+      img.alt = id;
+
+      dressGridImgContainer.appendChild(img);
+
+      const price = document.createElement("div");
+      price.textContent = price[id];
+
+      const size = document.createElement("div");
+      size.textContent = size[id];
+
+      const color = document.createElement("div");
+      color.textContent = color[id];
+
+      dressGridItem.appendChild(dressGridImgContainer);
+      dressGridItem.appendChild(price);
+      dressGridItem.appendChild(size);
+      dressGridItem.appendChild(color);
+      dressGridItem.id = id;
+      return dressGridItem;
+    }
+
+    function createDressGridItems(ids) {
+      const dressesContainer = document.querySelector(".dressesContainer");
+
+      ids.forEach((id) => {
+        const dressGridItem = createDressGridItem(id);
+        dressesContainer.appendChild(dressGridItem);
+        document.getElementById("csv_label").style.visibility = "hidden";
+        document.getElementById("txt_label").style.visibility = "hidden";
+        document.getElementById("csv").style.visibility = "hidden";
+        document.getElementById("txt").style.visibility = "hidden";
+      });
+    }
+  </script>
+  <body>
+    <h1>Dresses picked for: Emily</h1>
+
+    <div class="dressesContainer"></div>
+  </body>
+</html>
