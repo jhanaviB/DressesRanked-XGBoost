@@ -5,4 +5,6 @@
 3. A XGBoost ranker with pairwise ranking is fit to this label (qid here is the above mentioned label)
 4. All dresses are ranked on the user category.
 
+Dress catalog sorted as per user preferences
+
 ![Screenshot](dressrankings.PNG)
